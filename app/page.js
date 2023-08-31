@@ -9,21 +9,20 @@ import ItemSection from "./components/ItemSection";
 
 export default function Home() {
   return (
-    <>
-      <Box
-        sx={{
-          background: "#070707",
-        }}
-      >
+    <Box
+      sx={{
+        background: "#070707",
+      }}
+    >
+      <TopBar />
+
         <Box
           width={{ xs: "100%", md: "90%" }}
           sx={{
             margin: "0 auto",
           }}
         >
-          <TopBar />
           <Hero />
-        </Box>
       </Box>
       <Recipe />
       <ItemSection />
@@ -31,6 +30,6 @@ export default function Home() {
       <MenuSection />
       <ChefSection />
       <Footer />
-    </>
+    </Box>
   );
 }

@@ -201,7 +201,8 @@ const TopBar = () => {
               />
             </div>
 
-            <IconButton>
+            <IconButton onClick={closeDrawer}>
+              
               <CloseIcon
                 sx={{
                   color: "white",

@@ -1,14 +1,20 @@
 "use client";
 
-import { Box, Stack, Typography, Grid } from "@mui/material";
-
-
-const Card = () => {
+import { Box, Stack, Typography, Grid, IconButton } from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+const Card = ({ img, name }) => {
   return (
     <Box>
-      <img   style={{
-        width: "100%"
-      }} src="https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items12.png" />
+      <img
+        style={{
+          width: "100%",
+        }}
+        src={img}
+      />
       <div
         style={{
           padding: "45px 55px 45px 55px",
@@ -21,7 +27,7 @@ const Card = () => {
       >
         <Typography variant="h6" fontSize="1.8rem">
           {" "}
-          Soup with Egg
+          {name}
         </Typography>
         <Typography variant="subtitle2" fontSize="17px" lineHeight="28px">
           {" "}
@@ -32,7 +38,116 @@ const Card = () => {
   );
 };
 const ItemSection = () => {
-  const arr = [1, 2, 3];
+  const arr = [
+    {
+      name: "Soup with Egg",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items12.png",
+    },
+    {
+      name: "Prawn Fried",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items13.png",
+    },
+    {
+      name: "Prawn Noodles",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items11.png",
+    },
+    {
+      name: "Soup with Egg",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items12.png",
+    },
+    {
+      name: "Prawn Fried",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items13.png",
+    },
+    {
+      name: "Prawn Noodles",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-regular-items11.png",
+    },
+  ];
+
+  function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <IconButton
+        onClick={onClick}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          transform: "translate(0, -50%)",
+          right: "-25px",
+          background: "#bf9444",
+          color: "white",
+          "&:hover": {
+            background: "#bf9444",
+          },
+        }}
+      >
+        <ArrowForwardIcon
+          sx={{
+            cursor: "pointer",
+            fontSize: "25px",
+          }}
+        />
+      </IconButton>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <IconButton
+        onClick={onClick}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          transform: "translate(0, -50%)",
+          left: "-25px",
+          zIndex: 10,
+          background: "#bf9444",
+          color: "white",
+          "&:hover": {
+            background: "#bf9444",
+          },
+        }}
+      >
+        <ArrowBackIcon
+          sx={{
+            cursor: "pointer",
+            fontSize: "25px",
+          }}
+        />
+      </IconButton>
+    );
+  }
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 968,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 660,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
+  };
+
   return (
     <Box
       py="120px"
@@ -78,13 +193,20 @@ const ItemSection = () => {
           Various versions have evolved over the years, sometimes on purpose.
         </Typography>
 
-        <Grid container spacing={5} mt={2}>
+        <Slider {...settings}>
+          {arr.map((item, index) => (
+            <div key={index}>
+              <Card {...item} />
+            </div>
+          ))}
+        </Slider>
+        {/* <Grid container spacing={5} mt={2}>
           {arr.map((i) => (
             <Grid item sm={4}>
-              <Card />
+              <Card {...i}/>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
       </Box>
     </Box>
   );

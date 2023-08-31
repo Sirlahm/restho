@@ -2,7 +2,7 @@
 import { Box, Stack, Typography, Button, Grid } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-const Card = () => {
+const Card = ({name,img}) => {
   return (
     <Box>
       <div
@@ -17,7 +17,7 @@ const Card = () => {
             width: "100%",
             height: "auto",
           }}
-          src="https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-3.png"
+          src={img}
         />
         <div
           style={{
@@ -78,7 +78,7 @@ const Card = () => {
       >
         <Typography variant="h6" fontSize="1.8rem">
           {" "}
-          Golden Coffee.
+          {name}
         </Typography>
         <Typography variant="subtitle2" fontSize="17px" lineHeight="28px">
           {" "}
@@ -90,8 +90,33 @@ const Card = () => {
 };
 
 const MenuSection = () => {
-  const arr = [1, 2, 3, 4, 5, 6];
+  const arr = [
+    {
+      name: "Prawn Noodles",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-1.png"
+    },
+    {
+      name: "Chicken Leg",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-2.png"
+    }, {
+      name: "Golden Coffee",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-3.png"
+    },
+    {
+      name: "Full Chicken",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-4.png"
+    },
+    {
+      name: "Mutton Kabab",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-5.png"
+    }, {
+      name: "Burger",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-food-item-6.png"
+    },
+  ];
   return (
+    <Box bgcolor="white">
+      
     <Box
       py={{ xs: "80px", md: "120px" }}
       bgcolor="white"
@@ -156,11 +181,12 @@ const MenuSection = () => {
       <Grid container spacing={5} mt={2}>
         {arr.map((i) => (
           <Grid item xs={12} sm={6} md={4}>
-            <Card />
+            <Card {...i}/>
           </Grid>
         ))}
       </Grid>
     </Box>
+  </Box>
   );
 };
 

@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Card = () => {
+const Card = ({name,img}) => {
   return (
     <Box
       sx={{
@@ -28,7 +28,7 @@ const Card = () => {
         >
           <img
             className="anime"
-            src="https://restho-nextjs.vercel.app/assets/images/bg/h2-product-4.png"
+            src={img}
           />
         </div>
 
@@ -45,7 +45,7 @@ const Card = () => {
         >
           <Typography variant="h6" fontSize="1.4rem">
             {" "}
-            Thai Soup{" "}
+            {name}
           </Typography>
           <Typography variant="subtitle2" fontSize="14px">
             {" "}
@@ -58,7 +58,35 @@ const Card = () => {
 };
 
 const Recipe = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7];
+  const arr = [
+    {
+      name: "Thai Soup",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-4.png",
+    },
+    {
+      name: "Meat Masala",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-3.png",
+    },
+    {
+      name: "Sea Food",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-2.png",
+    },
+    {
+      name: "Vegeterian",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-1.png",
+    },
+    {
+      name: "Thai Soup",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-4.png",
+    },
+    {
+      name: "Meat Masala",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-3.png",
+    },{
+      name: "Sea Food",
+      img: "https://restho-nextjs.vercel.app/assets/images/bg/h2-product-2.png",
+    },
+  ];
   const settings = {
     dots: false,
     arrows: false,
@@ -79,7 +107,7 @@ const Recipe = () => {
         },
       },
       {
-        breakpoint: 500,
+        breakpoint: 660,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -89,9 +117,11 @@ const Recipe = () => {
     ],
   };
   return (
-    <Box
+    <Box bgcolor="white">
+
+<Box
       py={{ xs: "70px", md: "120px" }}
-      bgcolor="white"
+      
       width={{ xs: "90%", md: "85%" }}
       margin="0 auto"
     >
@@ -99,7 +129,7 @@ const Recipe = () => {
         <Slider {...settings}>
           {arr.map((item, index) => (
             <div key={index}>
-              <Card />
+              <Card  {...item}/>
             </div>
           ))}
         </Slider>
@@ -116,58 +146,7 @@ const Recipe = () => {
               src=" https://restho-nextjs.vercel.app/assets/images/bg/h2-about-img-full.png"
             />
           </Box>
-          {/* <Box
-            sx={{
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              gap: "15px",
-              //  marginTop: "-50px",
-              maxWidth: "620px",
-              width: "100%",
-              marginRight: "30px",
-            }}
-          >
-            <img
-              style={{
-                width: "240px",
-                maxWidth: "100%",
-                height: "auto",
-              }}
-              src="https://restho-nextjs.vercel.app/assets/images/bg/h2-about-img1.png"
-            />
-            <img
-              style={{
-                width: "240px",
-                maxWidth: "100%",
-                height: "auto",
-                marginTop: "20px",
-              }}
-              src="https://restho-nextjs.vercel.app/assets/images/bg/h2-about-img3.png"
-            />
-            <img
-              style={{
-                width: "240px",
-                maxWidth: "100%",
-                height: "auto",
-                position: "absolute",
-                left: "132px",
-                top: "-115px",
-              }}
-              src="https://restho-nextjs.vercel.app/assets/images/bg/h2-about-img2.png"
-            />
-            <img
-              style={{
-                width: "240px",
-                maxWidth: "100%",
-                height: "auto",
-                position: "absolute",
-                left: "112px",
-                bottom: "-124px",
-              }}
-              src="https://restho-nextjs.vercel.app/assets/images/bg/h2-about-img4.png"
-            />
-          </Box> */}
+       
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -291,6 +270,7 @@ const Recipe = () => {
           </Box>
         </Grid>
       </Grid>
+    </Box>
     </Box>
   );
 };
