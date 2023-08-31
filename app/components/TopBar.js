@@ -29,7 +29,11 @@ const TopBar = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{
+          position:"sticky",
+          top: 0,
+          zIndex: "100"
+    }}>
       <Paper
         elevation={0}
         sx={{
@@ -37,7 +41,7 @@ const TopBar = () => {
           justifyContent: "space-between",
           alignItems: "center",
           background: "white",
-          paddingY: "16px",
+          paddingY: "15px",
           paddingX: isMobile ? "35px" : "20px",
           borderRadius: "48px",
           boxShadow: "3px 3px 30px rgba(32,35,56,.06)",

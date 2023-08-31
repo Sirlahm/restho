@@ -12,6 +12,7 @@ export default function Home() {
     <Box
       sx={{
         background: "#070707",
+        position:"relative"
       }}
     >
       <TopBar />
