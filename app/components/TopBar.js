@@ -29,19 +29,23 @@ const TopBar = () => {
   };
 
   return (
-    <Box sx={{
+    <Box
+    width={{ xs: "100%", md: "90%" }}
+    sx={{
           position:"sticky",
           top: 0,
-          zIndex: "100"
+          zIndex: "100",
+          margin: "0 auto",
+
     }}>
       <Paper
-        elevation={0}
+        elevation={1}
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           background: "white",
-          paddingY: "15px",
+          paddingY: isMobile?"15px":"11px",
           paddingX: isMobile ? "35px" : "20px",
           borderRadius: "48px",
           boxShadow: "3px 3px 30px rgba(32,35,56,.06)",
