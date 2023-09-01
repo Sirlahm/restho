@@ -39,22 +39,22 @@ const TopBar = () => {
 
     }}>
       <Paper
-        elevation={1}
+        elevation={2}
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           background: "white",
-          paddingY: isMobile?"15px":"11px",
+          paddingY: isMobile?"15px":"9px",
           paddingX: isMobile ? "35px" : "20px",
           borderRadius: "48px",
-          boxShadow: "3px 3px 30px rgba(32,35,56,.06)",
         }}
       >
         <div>
           <img
             alt="restho"
             src="https://restho-nextjs.vercel.app/assets/images/header2-logo.svg"
+            className="logo"
           />
         </div>
 
@@ -173,7 +173,7 @@ const TopBar = () => {
             display: isNonMobile ? "none" : "inline-flex",
           }}
         >
-          <MenuIcon sx={{ fontSize: "40px" }} />
+          <MenuIcon sx={{ fontSize: "30px" }} />
         </IconButton>
       </Paper>
 

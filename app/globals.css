@@ -15,6 +15,9 @@ body {
   font-family: "Cormorant Garamond", serif;
 }
 
+.logo{
+  width: 100%;
+}
 .footer-span {
   display: inline-block;
   position: relative;
@@ -104,3 +107,6 @@ body {
     top: 110px;
   }
 }
+@media (max-width: 1230px) {.logo{
+  width: 120px;
+} }
